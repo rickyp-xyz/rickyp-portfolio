@@ -10,16 +10,16 @@ import "../styles/global.css";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Richard Szilagyi</title>
 	</head>
 	<body>
-		<div id="animated-background">
+		<div class="page">
 			<slot />
 
-			<div class="bg">
-				<div class="blob blob-1"></div>
-				<div class="blob blob-2"></div>
-				<div class="blob blob-3"></div>
+			<div class="background">
+				<div class="background__glow background__glow--primary"></div>
+				<div class="background__glow background__glow--secondary"></div>
+				<div class="background__glow background__glow--accent"></div>
 			</div>
 		</div>
 	</body>
