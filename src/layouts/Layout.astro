@@ -9,6 +9,7 @@ interface Props {
     canonical?: string;
     ogType?: "website" | "article";
     image?: string;
+	robots?: string;
 }
 
 const {
@@ -16,7 +17,8 @@ const {
 	description = site.description,
     canonical,
     ogType = "website",
-    image
+    image,
+	robots,
 } = Astro.props;
 
 const canonicalUrl = canonical ?? Astro.url.href;
@@ -49,6 +51,9 @@ const ogImage = image
 		{ogImage && (
             <meta property="og:image" content={ogImage} />
         )}
+		{robots && (
+			<meta name="robots" content={robots} />
+		)}
 
 		<!-- Twitter -->
         <meta name="twitter:card" content="summary_large_image" />

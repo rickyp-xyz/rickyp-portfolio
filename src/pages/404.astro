@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import { site } from "../config/site";
+
+const title = `404 ~ ${site.name}`
+const description =
+    `The page you're looking for could not be found on ${site.name}. Return to the homepage to continue browsing.`;
+
+---
+
+<Layout
+    title={title}
+    description={description}
+    canonical={site.url}
+    robots="noindex, nofollow"
+>
+    <div class="error">
+        <div>
+            <h1>404</h1>
+            <p>The page you seek here</p>
+            <p>Has vanished into the void</p>
+            <p>Click home to return</p>
+            <a href="/">Home</a>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    .error {
+        min-height: calc(100vh - var(--navbar-height));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .error > div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        gap: 0.15rem;
+    }
+
+    h1 {
+        margin: 0;
+        color: currentColor;
+        font-size: clamp(7rem, 20vw, 13rem);
+        line-height: 0.85;
+        font-weight: 800;
+        letter-spacing: -0.12em;
+    }
+
+    p {
+        margin: 0;
+        max-width: 30rem;
+        font-size: 1.1rem;
+        line-height: 1.5;
+        opacity: 0.65;
+    }
+
+    a {
+        margin-top: 1.25rem;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 0.75rem 1.25rem;
+        border-radius: 0.6rem;
+
+        background: var(--color-red);
+        color: var(--text-light);
+
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+
+        transition:
+            transform 150ms ease,
+            background 150ms ease;
+    }
+
+    a:hover {
+        transform: translateY(-2px);
+        background: var(--color-red-orange);
+    }
+</style>
