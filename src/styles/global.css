@@ -1,21 +1,28 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import "./background.css";
+@import "./navbar.css";
 
 :root {
     --bg-dark: #0a0a0a;
     --text-light: #f0f0f0;
     --text-dark: #0f0f0f;
+
+    --text-navbar-light: #f4f4f4;
+
+    /* --color-primary: 
+    --color-secondary: 
+    --color-accent: 
+    */
+
     --color-red: #A3122D;
     --color-red-dark: #5E0B1B;
     --color-red-orange: #A93625;
     --color-orange: #C05A24;
     --color-cyan: #33EDE5;
-    --blob-blur: 50px;
-}
 
-html {
-    background: var(--bg-dark);
+    --blob-blur: 50px;
+    --navbar-height: 64px;
 }
 
 *,
@@ -25,6 +32,14 @@ html {
     padding: 0;
     box-sizing: border-box;
     font-family: Rubik, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html {
+    background: var(--bg-dark);
+    scroll-behavior: smooth;
+}
+
+body {
     color: var(--text-light);
 }
 
@@ -33,20 +48,17 @@ html {
     color: var(--text-dark);
 }
 
+/* h1 {
+} */
+
+a {
+    text-decoration: none;
+}
+
 .page {
     position: relative;
     min-width: 100%;
     min-height: 100vh;
     overflow: hidden;
+    padding-top: var(--navbar-height);
 }
-
-/* h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #f2f2f2;
-    font-size: clamp(2rem, 3.5vw, 6rem);
-    font-weight: 400;
-    text-align: center;
-} */
