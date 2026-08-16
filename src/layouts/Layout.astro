@@ -1,5 +1,9 @@
 ---
+import { site } from "../config/site";
+
 import "../styles/global.css";
+
+const { title = site.name } = Astro.props;
 ---
 
 <!doctype html>
@@ -10,17 +14,19 @@ import "../styles/global.css";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Richard Szilagyi</title>
+		<title>{title}</title>
 	</head>
 	<body>
 		<div class="page">
-			<slot />
-
-			<div class="background">
+			<div class="background" aria-hidden="true">
 				<div class="background__glow background__glow--primary"></div>
 				<div class="background__glow background__glow--secondary"></div>
 				<div class="background__glow background__glow--accent"></div>
 			</div>
+
+			<main>
+				<slot />
+			</main>
 		</div>
 	</body>
 </html>
