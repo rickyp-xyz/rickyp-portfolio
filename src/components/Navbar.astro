@@ -1,0 +1,28 @@
+---
+import { site } from "../config/site";
+
+const { name } = site;
+
+const navItems = [
+  { label: "Projects", to: "/projects" },
+];
+
+---
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="/" class="logo" aria-label="Home">
+      <span class="logo-mark">
+      </span>
+      <span>{name}</span>
+    </a>
+
+    <div class="nav-links">
+      {navItems.map((item) => (
+        <a href={item.to} class="nav-link">
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>

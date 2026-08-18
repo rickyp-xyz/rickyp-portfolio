@@ -1,4 +1,5 @@
 ---
+import Navbar from "../components/Navbar.astro";
 import { site } from "../config/site";
 
 import "../styles/global.css";
@@ -71,6 +72,8 @@ const ogImage = image
 				<div class="background__glow background__glow--accent"></div>
 			</div>
 
+			<Navbar />
+			
 			<main>
 				<slot />
 			</main>
