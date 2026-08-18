@@ -1,7 +1,17 @@
 {
-  "name": "portfolio-site",
-  "type": "module",
+  "name": "rickyp-portfolio",
   "version": "0.0.1",
+  "description": "Profile README Template",
+  "homepage": "https://github.com/rickyp-xyz/rickyp-portfolio#readme",
+  "bugs": {
+    "url": "https://github.com/rickyp-xyz/rickyp-portfolio/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rickyp-xyz/rickyp-portfolio.git"
+  },
+  "author": "Richard Szilagyi",
+  "type": "module",
   "engines": {
     "node": ">=22.12.0"
   },
