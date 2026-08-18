@@ -1,7 +1,70 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/home/Hero.astro';
+import { site } from '../config/site';
 ---
 
-<Layout>
-	<h1>Welcome</h1>
+<Layout
+	title={`${site.name} — Software Developer`}
+	description={site.description}
+>
+	<div class="portfolio">
+		<Hero />
+	</div>
 </Layout>
+
+
+<style>
+	/* =========================
+	Base
+	========================= */
+
+	.portfolio {
+		max-width: 1120px;
+		margin: 0 auto;
+		padding: 0 24px;
+	}
+
+	:global(.section) {
+		padding: 120px 0;
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	:global(.section__heading) {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 40px;
+	}
+
+	:global(.section__heading h2) {
+		max-width: 700px;
+		margin: 0;
+		font-size: clamp(2.5rem, 5vw, 4rem);
+		line-height: 1;
+		letter-spacing: -0.045em;
+	}
+
+
+	/* =========================
+	Responsive
+	========================= */
+
+	@media (max-width: 700px) {
+		:global(.section__heading) {
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 24px;
+		}
+	}
+
+	@media (max-width: 500px) {
+		.portfolio {
+			padding: 0 18px;
+		}
+
+		:global(.section) {
+			padding: 90px 0;
+		}
+	}
+</style>

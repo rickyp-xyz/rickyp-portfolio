@@ -1,0 +1,384 @@
+---
+import { site } from '../../config/site';
+import EmailCopy from '../../components/EmailCopy';
+---
+
+<section class="hero">
+    <div class="hero__content">
+
+        <h1>
+            Hi, I'm <span>Richard.</span>
+            <br />
+            I build software.
+        </h1>
+
+        <p class="hero__description">
+            I'm a software developer interested in building useful,
+            reliable, and well-designed software. I enjoy turning ideas
+            into working products and understanding how things work
+            under the hood.
+        </p>
+
+        <div class="hero__contact">
+            {site.socials.github && (
+                <a
+                    class="hero__contact-link"
+                    href={site.socials.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span class="hero__contact-label">GitHub</span>
+                    <span class="hero__contact-value">
+                        View my repositories
+                        <span class="hero__contact-arrow">↗</span>
+                    </span>
+                </a>
+            )}
+
+            <div class="hero__contact-email">
+                <span class="hero__contact-label">Email</span>
+                <EmailCopy
+                    email={site.contacts.email}
+                    client:load
+                />
+            </div>
+        </div>
+
+        <div class="hero__actions">
+            <a class="button button--primary" href="/projects">
+                View my projects
+            </a>
+
+            <a class="button button--secondary" href="#about">
+                About me
+            </a>
+        </div>
+    </div>
+
+    <div class="hero__aside" aria-hidden="true">
+        <div class="terminal">
+            <div class="terminal__header">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="terminal__body">
+                <p>
+                    <span class="terminal__prompt">$</span> whoami
+                </p>
+
+                <p class="terminal__output">
+                    richard@developer
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* =========================
+	Hero
+	========================= */
+
+	.hero {
+		position: relative;
+		min-height: calc(100vh - var(--navbar-height));
+		display: grid;
+		grid-template-columns: 1.2fr 0.8fr;
+		align-items: center;
+		gap: 80px;
+		padding: 80px 0 120px;
+	}
+
+	.hero__content {
+		position: relative;
+		z-index: 1;
+	}
+
+	.hero__intro {
+		margin: 0 0 24px;
+		color: var(--color-accent);
+		font-family: monospace;
+		font-size: 0.75rem;
+		font-weight: 500;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.hero h1 {
+		margin: 0;
+		max-width: 850px;
+		font-size: clamp(3.5rem, 8vw, 6.5rem);
+		line-height: 0.94;
+		letter-spacing: -0.065em;
+	}
+
+	.hero h1 span {
+		color: var(--color-accent);
+	}
+
+	.hero__description {
+		max-width: 650px;
+		margin: 32px 0 0;
+		color: #a1a1aa;
+		font-size: 1.1rem;
+		line-height: 1.8;
+	}
+
+	/* =========================
+	Hero Contact
+	========================= */
+
+	.hero__contact {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+		margin-top: 38px;
+	}
+
+	.hero__contact-link,
+	.hero__contact-email {
+		display: flex;
+		flex-direction: column;
+		gap: 7px;
+		min-width: 210px;
+		padding: 14px 16px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		border-radius: 6px;
+		background: rgba(255, 255, 255, 0.015);
+		transition:
+			border-color 0.2s ease,
+			background 0.2s ease;
+	}
+
+	.hero__contact-link:hover,
+	.hero__contact-email:has(.email-copy:hover) {
+		border-color: rgba(51, 237, 229, 0.3);
+		background: rgba(51, 237, 229, 0.025);
+	}
+
+	.hero__contact-label {
+		color: #71717a;
+		font-family: monospace;
+		font-size: 0.65rem;
+		font-weight: 500;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.hero__contact-value {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		color: var(--text-light-primary);
+		font-size: 0.9rem;
+	}
+
+	.hero__contact-arrow {
+		color: var(--color-accent);
+		transition: transform 0.2s ease;
+	}
+
+	.hero__contact-link:hover .hero__contact-arrow {
+		transform: translate(2px, -2px);
+	}
+
+	/*
+	* EmailCopy renders its own .footer-link class.
+	* Override it here so it fits the hero.
+	*/
+
+	.hero__contact-email :global(.email-copy) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		width: 100%;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		color: var(--text-light-primary);
+	}
+
+	.hero__contact-email :global(.email-address) {
+		color: var(--text-light-primary);
+		font-size: 0.9rem;
+	}
+
+	.hero__contact-email :global(.copy-status) {
+		color: var(--color-accent);
+		font-family: monospace;
+		font-size: 0.7rem;
+	}
+
+	/* =========================
+	Hero Actions
+	========================= */
+
+	.hero__actions {
+		display: flex;
+		gap: 12px;
+		margin-top: 32px;
+	}
+
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 13px 20px;
+		border-radius: 6px;
+		font-size: 0.9rem;
+		font-weight: 600;
+		transition:
+			transform 0.2s ease,
+			background 0.2s ease,
+			border-color 0.2s ease,
+			color 0.2s ease;
+	}
+
+	.button:hover {
+		transform: translateY(-2px);
+	}
+
+	.button--primary {
+		background: var(--color-accent);
+		color: var(--text-dark-primary);
+	}
+
+	.button--primary:hover {
+		background: #24d4ce;
+	}
+
+	.button--secondary {
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		color: var(--text-light-primary);
+	}
+
+	.button--secondary:hover {
+		border-color: var(--color-accent);
+		color: var(--color-accent);
+	}
+
+
+
+	/* =========================
+	Terminal
+	========================= */
+
+	.terminal {
+		overflow: hidden;
+		border: 1px solid rgba(51, 237, 229, 0.18);
+		border-radius: 10px;
+		background: rgba(10, 10, 10, 0.82);
+		box-shadow:
+			0 30px 80px rgba(0, 0, 0, 0.45),
+			0 0 60px rgba(51, 237, 229, 0.05);
+		transform: rotate(2deg);
+	}
+
+	.terminal__header {
+		display: flex;
+		gap: 7px;
+		padding: 14px 16px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.terminal__header span {
+		width: 9px;
+		height: 9px;
+		border-radius: 50%;
+		background: #3f3f46;
+	}
+
+	.terminal__header span:first-child {
+		background: var(--color-red);
+	}
+
+	.terminal__header span:nth-child(2) {
+		background: var(--color-orange);
+	}
+
+	.terminal__header span:nth-child(3) {
+		background: var(--color-accent);
+	}
+
+	.terminal__body {
+		padding: 28px;
+		font-family: monospace;
+		font-size: 0.85rem;
+		line-height: 1.6;
+	}
+
+	.terminal__body p {
+		margin: 0 0 6px;
+	}
+
+	.terminal__prompt {
+		color: var(--color-accent);
+	}
+
+	.terminal__output {
+		margin-bottom: 20px !important;
+		color: #71717a;
+	}
+
+	.terminal__active {
+		color: var(--color-accent);
+	}
+	
+	@media (max-width: 900px) {
+		.hero {
+			grid-template-columns: 1fr;
+			gap: 60px;
+		}
+
+		.hero__aside {
+			max-width: 600px;
+		}
+	}
+
+	@media (max-width: 500px) {
+		.hero {
+			min-height: auto;
+			padding: 50px 0 90px;
+		}
+
+		.hero h1 {
+			font-size: 3.4rem;
+		}
+
+		.hero__description {
+			font-size: 1rem;
+		}
+
+
+		.hero__contact {
+			flex-direction: column;
+		}
+
+		.hero__contact-link,
+		.hero__contact-email {
+			width: 100%;
+		}
+
+		.hero__actions {
+			margin-top: 24px;
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		.button {
+			width: 100%;
+		}
+
+		.terminal {
+			transform: none;
+		}
+
+		.terminal__body {
+			padding: 22px;
+			font-size: 0.78rem;
+		}
+	}
+</style>
