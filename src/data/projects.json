@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "",
+    "description": {
+      "short": "",
+      "long": ""
+    },
+    "source": "",
+    "license": "",
+    "context": {
+      "type": "",
+      "name": ""
+    },
+    "links": {
+        "demo": "https://example.com/todo",
+        "repo": "https://example.com/repo/todo"
+      },
+    "media": {
+      "cover": "./projects/cover-1.png"
+    },
+    "technology": [],
+    "tools": []
+  },
+  {
+    "id": 2,
+    "title": "",
+    "description": {
+      "short": "",
+      "long": ""
+    },
+    "source": "",
+    "links": {
+        "live": "https://example.com/weather"
+      },
+      "media": {
+        "cover": ".projects/cover-2.png"
+    },
+    "technology": [],
+    "tools": []
+  }
+]
