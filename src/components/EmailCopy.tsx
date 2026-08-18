@@ -55,7 +55,7 @@ export default function EmailCopy({ email }: EmailCopyProps) {
 
                 .copy-status {
                     flex-shrink: 0;
-                    color: var(--color-cyan);
+                    color: var(--color-accent);
                     transition: color 200ms ease;
                 }
 
