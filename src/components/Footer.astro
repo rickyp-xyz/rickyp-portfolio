@@ -1,0 +1,287 @@
+---
+import { site } from "../config/site";
+import { key } from "../config/key";
+import EmailCopy from "./EmailCopy";
+---
+
+<footer class="footer">
+	<div class="footer__inner">
+
+		<div class="footer__grid">
+
+			<!-- Socials -->
+			<div class="footer__column">
+				<p class="footer__label">Socials</p>
+
+				<div class="footer__links">
+					{site.socials.github && (
+						<a
+							class="footer-link"
+							href={`https://github.com/${site.socials.github}`}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							GitHub
+							<span>↗</span>
+						</a>
+					)}
+
+					{site.socials.linkedin && (
+						<a
+							class="footer-link"
+							href={`https://linkedin.com/in/${site.socials.linkedin}`}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							LinkedIn
+							<span>↗</span>
+						</a>
+					)}
+
+					{site.socials.twitter && (
+						<a
+							class="footer-link"
+							href={`https://x.com/${site.socials.twitter}`}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Twitter
+							<span>↗</span>
+						</a>
+					)}
+
+					{site.socials.youtube && (
+						<a
+							class="footer-link"
+							href={`https://youtube.com/${site.socials.youtube}`}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							YouTube
+							<span>↗</span>
+						</a>
+					)}
+				</div>
+			</div>
+
+
+			<!-- Contact -->
+			<div class="footer__column">
+				<p class="footer__label">Contact</p>
+
+				<div class="footer__contact">
+					<EmailCopy
+						email={site.contacts.email}
+						client:load
+					/>
+				</div>
+			</div>
+
+
+			<!-- PGP -->
+			<div class="footer__column">
+				<p class="footer__label">Public key</p>
+
+				<div class="footer__key">
+					<code>{key.fingerprint}</code>
+
+					<a
+						class="footer-link"
+						href={key.publicKey}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						View public key
+						<span>↗</span>
+					</a>
+				</div>
+			</div>
+
+		</div>
+
+
+		<!-- Bottom -->
+		<div class="footer__bottom">
+			<span>
+				© {new Date().getFullYear()} {site.name}
+			</span>
+		</div>
+
+	</div>
+</footer>
+
+
+<style>
+	.footer {
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
+		background: #080808;
+	}
+
+	.footer__inner {
+		max-width: 1120px;
+		margin: 0 auto;
+		padding: 70px 24px 28px;
+	}
+
+	.footer__grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 60px;
+		padding-bottom: 70px;
+	}
+
+	.footer__column {
+		min-width: 0;
+	}
+
+	.footer__label {
+		margin: 0 0 20px;
+		color: #666;
+		font-family: monospace;
+		font-size: 0.7rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.footer__links {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 11px;
+	}
+
+	.footer-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 0;
+		border: 0;
+		background: none;
+		color: #d4d4d8;
+		font-size: 0.9rem;
+		transition:
+			color 0.2s ease,
+			transform 0.2s ease;
+	}
+
+	.footer-link span {
+		color: #666;
+		font-size: 0.8rem;
+		transition:
+			color 0.2s ease,
+			transform 0.2s ease;
+	}
+
+	.footer-link:hover {
+		color: var(--color-cyan);
+	}
+
+	.footer-link:hover span {
+		color: var(--color-cyan);
+		transform: translate(2px, -2px);
+	}
+
+
+	/* Contact */
+
+	.footer__contact {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 18px;
+	}
+
+	:global(.email-copy) {
+		display: inline-flex;
+		align-items: center;
+		gap: 14px;
+		max-width: 100%;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		color: #a1a1aa;
+		font-size: 0.85rem;
+	}
+
+	:global(.email-copy:hover) {
+		color: var(--color-cyan);
+	}
+
+	:global(.email-address) {
+		overflow-wrap: anywhere;
+	}
+
+	:global(.copy-status) {
+		flex-shrink: 0;
+		color: var(--color-cyan);
+		font-family: monospace;
+		font-size: 0.7rem;
+	}
+
+
+	/* Public key */
+
+	.footer__key {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 18px;
+	}
+
+	.footer__key code {
+		max-width: 100%;
+		padding: 10px 12px;
+		overflow-x: auto;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		border-radius: 5px;
+		background: rgba(255, 255, 255, 0.025);
+		color: #a1a1aa;
+		font-family: monospace;
+		font-size: 0.68rem;
+		line-height: 1.5;
+		word-break: break-all;
+	}
+
+
+	/* Bottom */
+
+	.footer__bottom {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+		padding-top: 24px;
+		border-top: 1px solid rgba(255, 255, 255, 0.06);
+		color: #555;
+		font-family: monospace;
+		font-size: 0.68rem;
+	}
+
+
+	/* Responsive */
+
+	@media (max-width: 700px) {
+		.footer__grid {
+			grid-template-columns: 1fr;
+			gap: 45px;
+			padding-bottom: 50px;
+		}
+
+		.footer__inner {
+			padding-top: 55px;
+		}
+	}
+
+	@media (max-width: 450px) {
+		.footer__inner {
+			padding-left: 18px;
+			padding-right: 18px;
+		}
+
+		.footer__bottom {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+</style>
