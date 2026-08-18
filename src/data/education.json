@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "institution": {
+            "name": "Munster Technological University",
+            "formerName": "Cork Institute of Technology"
+        },
+        "degree": "BSc in Software Development",
+        "location": {
+            "city": "Cork",
+            "country": "Ireland"
+        },
+        "startDate": "Oct 2020",
+        "endDate": "Jun 2026"
+    }
+]

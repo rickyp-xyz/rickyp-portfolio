@@ -1,0 +1,67 @@
+[
+    {
+        "id": 1,
+        "organization": null,
+        "title": "Independent Web Development Projects",
+        "description": "I worked on various web development projects for clients, including a courier booking platform, business websites, and other freelance projects. I worked across both frontend and backend development using PHP, MySQL, JavaScript, React, and Tailwind CSS.",
+        "location": {
+            "city": "Cork",
+            "country": "Ireland"
+        },
+        "startDate": "Jan 2015",
+        "endDate": "Aug 2020",
+        "website": null
+    },
+    {
+        "id": 2,
+        "organization": null,
+        "title": "Programming Tutor",
+        "description": " I taught students about coding in programming languages like JavaScript, Python, SQL, and relational database systems through in-person lessons and Fiverr. I helped my students understand programming fundamentals, solve problems, debug their code, and build small projects.",
+        "location": {
+            "city": "Cork",
+            "country": "Ireland"
+        },
+        "startDate": "Jan 2021",
+        "endDate": "May 2022",
+        "website": null
+    },
+    {
+        "id": 3,
+        "organization": "Bounce Insights",
+        "role": "Software Engineer Intern",
+        "description": "I joined Bounce Insights, a market intelligence company, as a Software Engineer Intern. I worked with the engineering team on their backend, mainly improving automated test coverage and writing tests for their REST API.",
+        "location": {
+            "city": "Dublin",
+            "country": "Ireland"
+        },
+        "startDate": "Jun 2023",
+        "endDate": "Sep 2023",
+        "website": "https://bounceinsights.com"
+    },
+    {
+        "id": 4,
+        "organization": "LocaleHost",
+        "role": "Chief Everything Officer",
+        "description": "I launched a startup called LocaleHost, where I am building a property rental platform for the Irish market. As the sole software engineer, I handle everything from designing the product and building the application to managing the infrastructure and deployment. Developing the platform using TypeScript, React, Node.js, Fastify, Python, PostgreSQL, Docker, and Cloudflare.",
+        "location": {
+            "city": "Cork",
+            "country": "Ireland"
+        },
+        "startDate": "Oct 2023",
+        "endDate": null,
+        "website": "https://localehost.ie"
+    },
+    {
+        "id": 5,
+        "organization": "MTUMods",
+        "role": "Project Founder",
+        "description": "I started MTUMods, an open source initiative for students at Munster Technological University to build software outside of their courses. The goal is to give students a place to work on real projects, collaborate with each other, and contribute to something that can benefit the wider MTU community.",
+        "location": {
+            "city": "Cork",
+            "country": "Ireland"
+        },
+        "startDate": "Aug 2026",
+        "endDate": null,
+        "website": "https://mtumods.com"
+    }
+]
