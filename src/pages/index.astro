@@ -2,11 +2,16 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/home/Hero.astro';
 import { site } from '../config/site';
+
+const meta = {
+	title: site.name,
+	description: site.description
+}
 ---
 
 <Layout
-	title={`${site.name} — Software Developer`}
-	description={site.description}
+	title={`${meta.title} Portfolio`}
+	description={meta.description}
 >
 	<div class="portfolio">
 		<Hero />

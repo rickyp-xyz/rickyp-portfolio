@@ -3,15 +3,16 @@ export const site = {
     description: "I'm a software developer interested in building useful, reliable, and well-designed software.",
     location: "Thailand",
     url: "https://rickyp.xyz",
-    image: null,
+    image: undefined,
     contacts: {
         email: "riszilagyi0@gmail.com",
-        telegram: "",
+        telegram: undefined,
+        whatsapp: undefined
     },
     socials: {
-        github: "",
-        linkedin: "",
-        twitter: "",
-        youtube: ""
+        github: undefined,
+        linkedin: undefined,
+        twitter: undefined,
+        youtube: undefined
     }
 }

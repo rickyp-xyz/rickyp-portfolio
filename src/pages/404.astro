@@ -3,17 +3,18 @@ import Layout from '../layouts/Layout.astro';
 
 import { site } from "../config/site";
 
-const title = `404 ~ ${site.name}`
-const description =
-    `The page you're looking for could not be found on ${site.name}. Return to the homepage to continue browsing.`;
+const meta = {
+    title: `404 ~ ${site.name}`,
+    description: `The page you're looking for could not be found on ${site.name}. Return to the homepage to continue browsing.`,
+    robots: "noindex, nofollow"
+}
 
 ---
 
 <Layout
-    title={title}
-    description={description}
-    canonical={site.url}
-    robots="noindex, nofollow"
+    title={meta.title}
+    description={meta.description}
+    robots={meta.robots}
 >
     <div class="error">
         <div>

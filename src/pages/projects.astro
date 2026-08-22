@@ -4,11 +4,10 @@ import Layout from '../layouts/Layout.astro';
 
 import { site } from "../config/site";
 
-const title = `Projects ~ ${site.name}`
-const description =
-    `Explore ${site.name}'s projects, experiments, and open-source work across web development, software, and technology.`;
-
-const canonical = `${site.url}/projects`;
+const meta = {
+    title: `Projects ~ ${site.name}`,
+    description: `Explore ${site.name}'s projects, experiments, and open-source work across web development, software, and technology.`,
+}
 
 interface Project {
     id: number;
@@ -44,10 +43,8 @@ interface Project {
 ---
 
 <Layout
-    title={title}
-    description={description}
-    canonical={canonical}
-    ogType="website"
+    title={meta.title}
+    description={meta.description}
 >
     <div class="projects-page">
         <div class="projects-shell">
