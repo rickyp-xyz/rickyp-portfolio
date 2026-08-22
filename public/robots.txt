@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: https://rickyp.xyz/sitemap.xml
