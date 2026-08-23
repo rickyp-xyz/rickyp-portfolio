@@ -17,7 +17,7 @@ import EmailComponent from "./EmailComponent";
 					{site.socials.github && (
 						<a
 							class="footer-link"
-							href={`https://github.com/${site.socials.github}`}
+							href={site.socials.github}
 							target="_blank"
 							rel="noopener noreferrer"
 						>
@@ -29,7 +29,7 @@ import EmailComponent from "./EmailComponent";
 					{site.socials.linkedin && (
 						<a
 							class="footer-link"
-							href={`https://linkedin.com/in/${site.socials.linkedin}`}
+							href={site.socials.linkedin}
 							target="_blank"
 							rel="noopener noreferrer"
 						>
@@ -41,7 +41,7 @@ import EmailComponent from "./EmailComponent";
 					{site.socials.twitter && (
 						<a
 							class="footer-link"
-							href={`https://x.com/${site.socials.twitter}`}
+							href={site.socials.twitter}
 							target="_blank"
 							rel="noopener noreferrer"
 						>
@@ -53,11 +53,23 @@ import EmailComponent from "./EmailComponent";
 					{site.socials.youtube && (
 						<a
 							class="footer-link"
-							href={`https://youtube.com/${site.socials.youtube}`}
+							href={site.socials.youtube}
 							target="_blank"
 							rel="noopener noreferrer"
 						>
 							YouTube
+							<span>↗</span>
+						</a>
+					)}
+
+					{site.socials.discordServer && (
+						<a
+							class="footer-link"
+							href={site.socials.discordServer}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Discord
 							<span>↗</span>
 						</a>
 					)}
@@ -71,13 +83,41 @@ import EmailComponent from "./EmailComponent";
 
 				<div class="footer__contact">
 					<EmailComponent client:load />
+
+					<div>
+						{site.contacts.telegram && (
+						<a
+							class="footer-link"
+							href={`https://t.me/${site.contacts.telegram}`}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Telegram
+							<span>↗</span>
+						</a>
+						)}
+					</div>
+
+					<div>
+						{site.contacts.whatsapp && (
+						<a
+							class="footer-link"
+							href={site.contacts.whatsapp}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							WhatsApp
+							<span>↗</span>
+						</a>
+						)}
+					</div>
 				</div>
 			</div>
 
 
 			<!-- PGP -->
 			<div class="footer__column">
-				<p class="footer__label">Public key</p>
+				<p class="footer__label">Public key fingerprint	</p>
 
 				<div class="footer__key">
 					<code>{key.fingerprint}</code>
