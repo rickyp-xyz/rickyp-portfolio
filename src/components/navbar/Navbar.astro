@@ -1,5 +1,6 @@
 ---
 import { site } from "../../config/site";
+import MobileMenu from "./MobileMenu";
 
 const { name } = site;
 
@@ -10,17 +11,16 @@ const navItems = [
   { label: "Tech", to: "/tech" },
   { label: "Now", to: "/now" },
 ];
-
 ---
 
 <nav class="navbar">
   <div class="navbar-inner">
     <a href="/" class="logo" aria-label="Home">
-      <span class="logo-mark">
-      </span>
+      <span class="logo-mark"></span>
       <span>{name}</span>
     </a>
 
+    <!-- Desktop navigation -->
     <div class="nav-links">
       {navItems.map((item) => (
         <a href={item.to} class="nav-link">
@@ -28,5 +28,8 @@ const navItems = [
         </a>
       ))}
     </div>
+
+    <!-- Mobile navigation island -->
+    <MobileMenu items={navItems} client:load />
   </div>
 </nav>

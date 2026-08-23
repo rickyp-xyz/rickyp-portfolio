@@ -57,6 +57,6 @@ a {
     position: relative;
     min-width: 100%;
     min-height: 100vh;
-    overflow: hidden;
     padding-top: var(--navbar-height);
+    overflow-x: clip;
 }
