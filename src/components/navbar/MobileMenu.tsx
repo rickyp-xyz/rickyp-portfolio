@@ -77,8 +77,9 @@ export default function MobileMenu({ items }: Props) {
             >
                 <div className="mobile-menu-inner">
                     <nav className="mobile-nav-links" aria-label="Mobile navigation">
-                        {items.map((item, index) => (
+                        {items.map((item) => (
                             <a
+                                key={item.to}
                                 href={item.to}
                                 className="mobile-nav-link"
                                 onClick={() => setIsOpen(false)}
