@@ -40,28 +40,6 @@ export default function EmailComponent() {
                     {copied ? "Copied!" : "Copy"}
                 </span>
             </button>
-
-            <style>{`
-                .email-copy {
-                    cursor: pointer;
-                    font-family: inherit;
-                    text-align: left;
-                }
-
-                .email-address {
-                    overflow-wrap: anywhere;
-                }
-
-                .copy-status {
-                    flex-shrink: 0;
-                    color: var(--color-accent);
-                    transition: color 200ms ease;
-                }
-
-                .email-copy.copied .copy-status {
-                    color: #fff;
-                }
-            `}</style>
         </>
     );
 }
