@@ -1,6 +1,6 @@
 ---
 import { site } from '../../config/site';
-import EmailCopy from '../../components/EmailCopy';
+import EmailComponent from '../EmailComponent';
 ---
 
 <section class="hero">
@@ -37,10 +37,7 @@ import EmailCopy from '../../components/EmailCopy';
 
             <div class="hero__contact-email">
                 <span class="hero__contact-label">Email</span>
-                <EmailCopy
-                    email={site.contacts.email}
-                    client:load
-                />
+                <EmailComponent client:load />
             </div>
         </div>
 

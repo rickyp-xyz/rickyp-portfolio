@@ -1,7 +1,7 @@
 ---
 import { site } from "../config/site";
 import { key } from "../config/key";
-import EmailCopy from "./EmailCopy";
+import EmailComponent from "./EmailComponent";
 ---
 
 <footer class="footer">
@@ -70,10 +70,7 @@ import EmailCopy from "./EmailCopy";
 				<p class="footer__label">Contact</p>
 
 				<div class="footer__contact">
-					<EmailCopy
-						email={site.contacts.email}
-						client:load
-					/>
+					<EmailComponent client:load />
 				</div>
 			</div>
 

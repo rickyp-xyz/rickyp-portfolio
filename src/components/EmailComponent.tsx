@@ -1,10 +1,9 @@
 import { useState } from "react";
+import { site } from "../config/site";
 
-interface EmailCopyProps {
-    email: string;
-}
+const { email } = site.contacts;
 
-export default function EmailCopy({ email }: EmailCopyProps) {
+export default function EmailComponent() {
     const [copied, setCopied] = useState(false);
     const [username, domain] = email.split("@");
 
@@ -25,7 +24,7 @@ export default function EmailCopy({ email }: EmailCopyProps) {
     return (
         <>
             <button
-                className={`footer-link primary email-copy ${copied ? "copied" : ""
+                className={`email-copy ${copied ? "copied" : ""
                     }`}
                 type="button"
                 onClick={copyEmail}
@@ -33,8 +32,8 @@ export default function EmailCopy({ email }: EmailCopyProps) {
             >
                 <span className="email-address">
                     <span>{username}</span>
-                    <span> [at] </span>
-                    <span>{domain.replace(".", " [dot] ")}</span>
+                    <span>[at]</span>
+                    <span>{domain.replace(".", "[dot]")}</span>
                 </span>
 
                 <span className="copy-status">
