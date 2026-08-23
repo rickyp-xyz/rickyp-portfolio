@@ -7,7 +7,7 @@ import EmailComponent from '../EmailComponent';
     <div class="hero__content">
 
         <h1>
-            Hi, I'm <span>Richard.</span>
+            Hi, I'm <span>Richard</span>.
             <br />
             I build software.
         </h1>
@@ -93,26 +93,16 @@ import EmailComponent from '../EmailComponent';
 		z-index: 1;
 	}
 
-	.hero__intro {
-		margin: 0 0 24px;
-		color: var(--color-accent);
-		font-family: monospace;
-		font-size: 0.75rem;
-		font-weight: 500;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-	}
-
 	.hero h1 {
 		margin: 0;
 		max-width: 850px;
-		font-size: clamp(3.5rem, 8vw, 6.5rem);
+		font-size: clamp(3.5rem, 8vw, 4.5rem);
 		line-height: 0.94;
 		letter-spacing: -0.065em;
 	}
 
 	.hero h1 span {
-		color: var(--color-accent);
+		color: var(--color-secondary);
 	}
 
 	.hero__description {
@@ -151,7 +141,7 @@ import EmailComponent from '../EmailComponent';
 
 	.hero__contact-link:hover,
 	.hero__contact-email:has(.email-copy:hover) {
-		border-color: rgba(51, 237, 229, 0.3);
+		border-color: rgba(237, 54, 51, 0.3);
 		background: rgba(51, 237, 229, 0.025);
 	}
 
@@ -239,12 +229,12 @@ import EmailComponent from '../EmailComponent';
 	}
 
 	.button--primary {
-		background: var(--color-accent);
-		color: var(--text-dark-primary);
+		background: var(--color-primary);
+		color: var(--text-light-primary);
 	}
 
 	.button--primary:hover {
-		background: #24d4ce;
+		background: var(--color-red);
 	}
 
 	.button--secondary {
@@ -253,11 +243,9 @@ import EmailComponent from '../EmailComponent';
 	}
 
 	.button--secondary:hover {
-		border-color: var(--color-accent);
-		color: var(--color-accent);
+		border-color: var(--color-red-dark);
+		color: var(--color--red-dark);
 	}
-
-
 
 	/* =========================
 	Terminal
