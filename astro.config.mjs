@@ -6,5 +6,10 @@ import react from '@astrojs/react';
 // https://astro.build/config
 export default defineConfig({
   site: "https://rickyp.xyz",
-  integrations: [react()]
+  integrations: [react()],
+  vite: {
+    build: {
+      cssMinify: 'esbuild',
+    },
+  },
 });
