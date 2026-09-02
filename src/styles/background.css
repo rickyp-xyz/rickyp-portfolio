@@ -3,14 +3,13 @@ OVERALL SYSTEM
 ========================================= */
 
 .background {
-    position: fixed;
-    width: clamp(600px, 90vw, 1200px);
-    height: clamp(500px, 80vh, 900px);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: sticky;
+    top: var(--navbar-height);
+    width: 100%;
+    height: calc(100vh);
+    margin-bottom: calc(-100vh + var(--navbar-height));
     pointer-events: none;
-    z-index: -1000;
+    z-index: 0;
 }
 
 /* =========================================
@@ -22,7 +21,7 @@ BLOBS
     aspect-ratio: 1;
     will-change: transform;
     transform: translate3d(0, 0, 0);
-    pointer-events: none
+    pointer-events: none;
 }
 
 .background__glow::before {
@@ -46,11 +45,12 @@ BLOB 1
 
 .background__glow--primary {
     width: clamp(350px, 50vw, 700px);
-    top: 5%;
-    left: 5%;
+    top: 50%;
+    left: 50%;
+    margin: 0;
     opacity: 0.6;
 
-    animation: glow1Movement 26s ease-in-out infinite;
+    animation: blob1Movement 26s ease-in-out infinite;
 }
 
 .background__glow--primary::before {
@@ -62,7 +62,7 @@ BLOB 1
         var(--color-red-dark) 100%
     );
 
-    animation-name: glow1Shape;
+    animation-name: blob1Shape;
     animation-duration: 19s;
 }
 
@@ -72,11 +72,12 @@ BLOB 2
 
 .background__glow--secondary {
     width: clamp(300px, 42vw, 600px);
-    top: 5%;
-    right: -5%;
+    top: 50%;
+    left: 50%;
+    margin: 0;
     opacity: 0.55;
 
-    animation: glow2Movement 31s ease-in-out infinite;
+    animation: blob2Movement 31s ease-in-out infinite;
 }
 
 .background__glow--secondary::before {
@@ -88,63 +89,53 @@ BLOB 2
         #68101E 100%
     );
 
-    animation-name: glow2Shape;
+    animation-name: blob2Shape;
     animation-duration: 23s;
-}
-
-/* =========================================
-BLOB 3
-========================================= */
-
-.background__glow--accent {
-    width: clamp(320px, 45vw, 650px);
-    bottom: 0%;
-    left: 25%;
-    opacity: 0.5;
-
-    animation: glow3Movement 34s ease-in-out infinite;
-}
-
-.background__glow--accent::before {
-    background: linear-gradient(
-        135deg,
-        var(--color-red-dark) 0%,
-        #741123 35%,
-        #8E1728 65%,
-        var(--color-red-orange) 100%
-    );
-
-    animation-name: glow3Shape;
-    animation-duration: 27s;
 }
 
 /* =========================================
 BLOB 1 MOVEMENT
 ========================================= */
 
-@keyframes glow1Movement {
+@keyframes blob1Movement {
     0% {
-        transform: translate3d(0, 0, 0) scale(1);
+        transform: translate3d(-75%, -50%, 0) scale(1);
     }
 
     20% {
-        transform: translate3d(100px, 50px, 0) scale(1.05);
+        transform: translate3d(
+            calc(-50% + 2vw),
+            calc(-50% - 7vh),
+            0
+        ) scale(1.05);
     }
 
     40% {
-        transform: translate3d(220px, 150px, 0) scale(0.95);
+        transform: translate3d(
+            calc(-50% + 7vw),
+            calc(-50% + 2vh),
+            0
+        ) scale(0.95);
     }
 
     60% {
-        transform: translate3d(100px, 250px, 0) scale(1.08);
+        transform: translate3d(
+            calc(-50% + 2vw),
+            calc(-50% + 8vh),
+            0
+        ) scale(1.08);
     }
 
     80% {
-        transform: translate3d(-80px, 130px, 0) scale(0.98);
+        transform: translate3d(
+            calc(-50% - 6vw),
+            calc(-50% + 3vh),
+            0
+        ) scale(0.98);
     }
 
     100% {
-        transform: translate3d(0, 0, 0) scale(1);
+        transform: translate3d(-75%, -50%, 0) scale(1);
     }
 }
 
@@ -152,59 +143,45 @@ BLOB 1 MOVEMENT
 BLOB 2 MOVEMENT
 ========================================= */
 
-@keyframes glow2Movement {
+@keyframes blob2Movement {
     0% {
-        transform: translate3d(0, 0, 0) scale(1);
+        transform: translate3d(-25%, -50%, 0) scale(1);
     }
 
     20% {
-        transform: translate3d(-100px, 100px, 0) scale(0.95);
+        transform: translate3d(
+            calc(-50% - 2vw),
+            calc(-50% + 7vh),
+            0
+        ) scale(0.95);
     }
 
     40% {
-        transform: translate3d(-220px, 180px, 0) scale(1.08);
+        transform: translate3d(
+            calc(-50% - 7vw),
+            calc(-50% - 2vh),
+            0
+        ) scale(1.08);
     }
 
     60% {
-        transform: translate3d(-150px, 300px, 0) scale(0.96);
+        transform: translate3d(
+            calc(-50% - 2vw),
+            calc(-50% - 8vh),
+            0
+        ) scale(0.96);
     }
 
     80% {
-        transform: translate3d(0, 180px, 0) scale(1.05);
+        transform: translate3d(
+            calc(-50% + 6vw),
+            calc(-50% - 3vh),
+            0
+        ) scale(1.05);
     }
 
     100% {
-        transform: translate3d(0, 0, 0) scale(1);
-    }
-}
-
-/* =========================================
-BLOB 3 MOVEMENT
-========================================= */
-
-@keyframes glow3Movement {
-    0% {
-        transform: translate3d(0, 0, 0) scale(1);
-    }
-
-    20% {
-        transform: translate3d(-150px, -100px, 0) scale(1.06);
-    }
-
-    40% {
-        transform: translate3d(100px, -220px, 0) scale(0.94);
-    }
-
-    60% {
-        transform: translate3d(250px, -100px, 0) scale(1.08);
-    }
-
-    80% {
-        transform: translate3d(100px, 50px, 0) scale(0.96);
-    }
-
-    100% {
-        transform: translate3d(0, 0, 0) scale(1);
+        transform: translate3d(-25%, -50%, 0) scale(1);
     }
 }
 
@@ -212,7 +189,7 @@ BLOB 3 MOVEMENT
 BLOB 1 SHAPE
 ========================================= */
 
-@keyframes glow1Shape {
+@keyframes blob1Shape {
     0% {
         border-radius: 30% 70% 70% 30% / 30% 40% 70% 70%;
     }
@@ -238,7 +215,7 @@ BLOB 1 SHAPE
 BLOB 2 SHAPE
 ========================================= */
 
-@keyframes glow2Shape {
+@keyframes blob2Shape {
     0% {
         border-radius: 70% 30% 40% 60% / 45% 55% 65% 35%;
     }
@@ -261,32 +238,6 @@ BLOB 2 SHAPE
 }
 
 /* =========================================
-BLOB 3 SHAPE
-========================================= */
-
-@keyframes glow3Shape {
-    0% {
-        border-radius: 45% 55% 70% 30% / 60% 35% 65% 40%;
-    }
-
-    25% {
-        border-radius: 70% 30% 45% 55% / 35% 65% 40% 60%;
-    }
-
-    50% {
-        border-radius: 30% 70% 60% 40% / 55% 45% 70% 30%;
-    }
-
-    75% {
-        border-radius: 60% 40% 30% 70% / 40% 70% 30% 60%;
-    }
-
-    100% {
-        border-radius: 45% 55% 70% 30% / 60% 35% 65% 40%;
-    }
-}
-
-/* =========================================
 SMALL TABLET / NARROW DESKTOP SCREEN
 ========================================= */
 
@@ -299,98 +250,108 @@ SMALL TABLET / NARROW DESKTOP SCREEN
 
     .background__glow--primary {
         width: 48vw;
-        top: 10%;
-        left: 10%;
+        top: 50%;
+        left: 30%;
+        margin: 0;
     }
 
     .background__glow--secondary {
         width: 42vw;
-        top: 8%;
-        right: 5%;
-    }
-    
-   
-    .background__glow--accent{
-        width: 45vw;
-        bottom: 5%;
-        left: 28%;
+        top: 50%;
+        left: 70%;
+        margin: 0;
     }
 
-    @keyframes glow1Movement {
+    /* =========================================
+       BLOB 1 — DIAGONAL MOVEMENT
+       ========================================= */
+
+    @keyframes blob1Movement {
         0% {
-        transform: translate3d(0, 0, 0) scale(1);
+            transform: translate3d(-50%, -50%, 0) scale(1);
         }
 
         20% {
-        transform: translate3d(50px, 30px, 0) scale(1.03);
+            transform: translate3d(
+                calc(-50% + 3vw),
+                calc(-50% - 6vh),
+                0
+            ) scale(1.03);
         }
 
         40% {
-        transform: translate3d(100px, 70px, 0) scale(0.98);
+            transform: translate3d(
+                calc(-50% + 8vw),
+                calc(-50% + 2vh),
+                0
+            ) scale(0.98);
         }
 
         60% {
-        transform: translate3d(50px, 100px, 0) scale(1.05);
+            transform: translate3d(
+                calc(-50% + 3vw),
+                calc(-50% + 9vh),
+                0
+            ) scale(1.05);
         }
 
         80% {
-        transform: translate3d(-30px, 60px, 0) scale(1);
+            transform: translate3d(
+                calc(-50% - 4vw),
+                calc(-50% + 4vh),
+                0
+            ) scale(1);
         }
 
         100% {
-        transform: translate3d(0, 0, 0) scale(1);
+            transform: translate3d(-50%, -50%, 0) scale(1);
         }
     }
 
-    @keyframes glow2Movement {
+
+    /* =========================================
+       BLOB 2 — DIAGONAL MOVEMENT
+       ========================================= */
+
+    @keyframes blob2Movement {
         0% {
-        transform: translate3d(0, 0, 0) scale(1);
+            transform: translate3d(-50%, -50%, 0) scale(1);
         }
 
         20% {
-        transform: translate3d(-50px, 40px, 0) scale(0.98);
+            transform: translate3d(
+                calc(-50% - 3vw),
+                calc(-50% + 7vh),
+                0
+            ) scale(0.98);
         }
 
         40% {
-        transform: translate3d(-100px, 80px, 0) scale(1.05);
+            transform: translate3d(
+                calc(-50% - 8vw),
+                calc(-50% - 2vh),
+                0
+            ) scale(1.05);
         }
 
         60% {
-        transform: translate3d(-70px, 120px, 0) scale(1);
+            transform: translate3d(
+                calc(-50% - 4vw),
+                calc(-50% - 9vh),
+                0
+            ) scale(1);
         }
 
         80% {
-        transform: translate3d(-20px, 70px, 0) scale(1.03);
+            transform: translate3d(
+                calc(-50% + 4vw),
+                calc(-50% - 3vh),
+                0
+            ) scale(1.03);
         }
 
         100% {
-        transform: translate3d(0, 0, 0) scale(1);
-        }
-    }
-
-    @keyframes glow3Movement {
-        0% {
-        transform: translate3d(0, 0, 0) scale(1);
-        }
-
-        20% {
-        transform: translate3d(-60px, -40px, 0) scale(1.04);
-        }
-
-        40% {
-        transform: translate3d(50px, -80px, 0) scale(0.97);
-        }
-
-        60% {
-        transform: translate3d(100px, -40px, 0) scale(1.05);
-        }
-
-        80% {
-        transform: translate3d(40px, 20px, 0) scale(0.98);
-        }
-
-        100% {
-        transform: translate3d(0, 0, 0) scale(1);
+            transform: translate3d(-50%, -50%, 0) scale(1);
         }
     }
 }
@@ -400,7 +361,7 @@ PHONE SCREEN
 ========================================= */
 
 @media (max-width: 767px) {
-    /* .background {
+    .background {
         display: none;
-    } */
+    }
 }
